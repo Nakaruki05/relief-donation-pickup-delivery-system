@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relief Donation Pick-Up and Delivery System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-icon">♥</div>
+      <div>
+        <h1>ReliefLink</h1>
+        <p>Donation Pick-Up and Delivery System</p>
+      </div>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+    <nav id="mainNav">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#request" class="nav-link">Request Pickup</a>
+      <a href="#tracking" class="nav-link">Track Donations</a>
+      <a href="#about" class="nav-link">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow">LAMBUNAO, ILOILO</span>
+        <h2>Small acts of kindness.<br><span>Delivered with care.</span></h2>
+        <p>A simple platform concept for organizing relief donations, pickup schedules, and delivery updates in one place.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#request">Submit a Donation</a>
+          <a class="button secondary" href="#tracking">View Tracking</a>
+        </div>
+        <p class="prototype-note">Student project prototype · Sample data is stored only in this browser</p>
+      </div>
+      <div class="hero-card">
+        <div class="heart-circle">♥</div>
+        <h3>Every donation matters</h3>
+        <p>Food, clothing, hygiene kits, school supplies, and other relief goods can help support people in need.</p>
+        <div class="mini-stats">
+          <div><strong id="totalCount">0</strong><span>Requests</span></div>
+          <div><strong id="deliveredCount">0</strong><span>Delivered</span></div>
+          <div><strong id="pendingCount">0</strong><span>Pending</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="request">
+      <div class="section-heading">
+        <span class="eyebrow">DONOR FORM</span>
+        <h2>Submit a donation request</h2>
+        <p>Enter the donation details and preferred pickup schedule.</p>
+      </div>
+      <form id="donationForm" class="form-card">
+        <div class="form-grid">
+          <label>
+            Donor name
+            <input type="text" id="donorName" placeholder="Enter your name" required>
+          </label>
+          <label>
+            Email address
+            <input type="email" id="donorEmail" placeholder="you@example.com" required>
+          </label>
+          <label>
+            Donation category
+            <select id="donationType" required>
+              <option value="">Select category</option>
+              <option>Food and Water</option>
+              <option>Clothing and Blankets</option>
+              <option>Hygiene Kits</option>
+              <option>School Supplies</option>
+              <option>Medicine and First Aid</option>
+              <option>Other Relief Goods</option>
+            </select>
+          </label>
+          <label>
+            Quantity / number of packages
+            <input type="number" id="quantity" min="1" placeholder="e.g. 5" required>
+          </label>
+          <label>
+            Preferred pickup date
+            <input type="date" id="pickupDate" required>
+          </label>
+          <label>
+            Pickup location
+            <input type="text" id="pickupLocation" placeholder="Barangay, street, or landmark" required>
+          </label>
+          <label class="full-width">
+            Beneficiary / delivery destination
+            <input type="text" id="destination" placeholder="Organization, barangay, or delivery address" required>
+          </label>
+          <label class="full-width">
+            Donation description
+            <textarea id="description" rows="4" placeholder="Describe the items, condition, or special instructions"></textarea>
+          </label>
+        </div>
+        <div class="form-footer">
+          <p>Do not enter sensitive personal information in this demo.</p>
+          <button class="button primary" type="submit">Submit Request</button>
+        </div>
+        <div id="formMessage" class="form-message" role="status"></div>
+      </form>
+    </section>
+
+    <section class="section tracking-section" id="tracking">
+      <div class="section-heading">
+        <span class="eyebrow">REQUEST OVERVIEW</span>
+        <h2>Donation tracking</h2>
+        <p>Demo requests appear below. You can update their status to test the workflow.</p>
+      </div>
+      <div class="toolbar">
+        <input type="search" id="searchInput" placeholder="Search donor, category, or location">
+        <select id="statusFilter" aria-label="Filter by status">
+          <option value="All">All statuses</option>
+          <option>Pending</option>
+          <option>Accepted / Assigned</option>
+          <option>Picked Up</option>
+          <option>Out for Delivery</option>
+          <option>Delivered</option>
+          <option>Cancelled</option>
+        </select>
+      </div>
+      <div id="donationList" class="donation-list"></div>
+      <p class="storage-note">Prototype note: requests are saved in your browser's local storage, not in an online database.</p>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="section-heading">
+        <span class="eyebrow">ABOUT THE PROJECT</span>
+        <h2>How the system is intended to work</h2>
+      </div>
+      <div class="steps-grid">
+        <article class="step-card"><span>01</span><h3>Submit</h3><p>The donor enters donation details, pickup location, and preferred date.</p></article>
+        <article class="step-card"><span>02</span><h3>Review</h3><p>A charity administrator reviews the request and assigns pickup personnel.</p></article>
+        <article class="step-card"><span>03</span><h3>Collect</h3><p>Pickup personnel collect the donation and update its status.</p></article>
+        <article class="step-card"><span>04</span><h3>Deliver</h3><p>The donation is delivered to the listed destination and marked as delivered.</p></article>
+      </div>
+      <div class="disclaimer">
+        <strong>Academic prototype:</strong> This starter project demonstrates the user interface and a basic client-side workflow. It does not yet provide real accounts, email notifications, map pins, server-side access control, or a shared database.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>ReliefLink · Relief Donation Pick-Up and Delivery System</p>
+    <p>Proposed project area: Lambunao, Iloilo, Philippines</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
